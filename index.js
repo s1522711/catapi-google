@@ -49,10 +49,10 @@ app.listen(port, () => {
     if (fs.existsSync('albumurl.txt')) {
         const urlData = fs.readFileSync("albumurl.txt", 'utf8')
         albumUrl = parseInt(urlData, 10)
-        if (isNaN(albumUrl)) {
-            console.error('NO URL BITCH')
-            process.exit(1)
-        }
+    }
+    if (albumUrl === 'shush') {
+        console.error('NO URL BITCH')
+        process.exit(1)
     }
     const re = GooglePhotosAlbum.fetchImageUrls(albumUrl)
     re.then((result) => {
