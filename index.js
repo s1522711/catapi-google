@@ -45,7 +45,16 @@ app.get('/img.jpg', (req, res) => {
 
 app.listen(port, () => {
     // get the image list from the google photos album
-    const re = GooglePhotosAlbum.fetchImageUrls("https://photos.app.goo.gl/NZWYRzxbeUK2rry49")
+    let albumUrl = 'shush'
+    if (fs.existsSync('albumurl.txt')) {
+        const urlData = fs.readFileSync("albumurl.txt", 'utf8')
+        albumUrl = parseInt(urlData, 10)
+        if (isNaN(albumUrl)) {
+            console.error('NO URL BITCH')
+            process.exit(1)
+        }
+    }
+    const re = GooglePhotosAlbum.fetchImageUrls(albumUrl)
     re.then((result) => {
         images = result
         //console.log(images)
