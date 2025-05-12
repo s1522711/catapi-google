@@ -13,6 +13,7 @@ if (fs.existsSync(portFile)) {
         port = 3000
     }
 }
+const request = require('request')
 const GooglePhotosAlbum = require('google-photos-album-image-url-fetch')
 
 let images = []
