@@ -1,6 +1,18 @@
 const express = require('express')
 const app = express()
-const port = 3000
+
+// read the port from a file named port.txt or use 3000 as default
+const fs = require('fs')
+const portFile = 'port.txt'
+let port = 3000
+if (fs.existsSync(portFile)) {
+    const portData = fs.readFileSync(portFile, 'utf8')
+    port = parseInt(portData, 10)
+    if (isNaN(port) || port < 1 || port > 65535) {
+        console.error('Invalid port number in port.txt. Using default port 3000.')
+        port = 3000
+    }
+}
 const GooglePhotosAlbum = require('google-photos-album-image-url-fetch')
 
 let images = []
