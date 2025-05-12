@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const port = 3000
 const GooglePhotosAlbum = require('google-photos-album-image-url-fetch')
-const fs = require('fs'), request = require('request');
 
 let images = []
 
@@ -24,6 +23,7 @@ app.get('/img.jpg', (req, res) => {
     request.get(imageUrl)
         .on('error', (err) => {
             res.status(500).send('Error fetching image')
+            console.error(err)
         })
         .pipe(res)
     // log the successful image fetch
