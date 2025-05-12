@@ -48,7 +48,7 @@ app.listen(port, () => {
     let albumUrl = 'shush'
     if (fs.existsSync('albumurl.txt')) {
         const urlData = fs.readFileSync("albumurl.txt", 'utf8')
-        albumUrl = parseInt(urlData, 10)
+        albumUrl = urlData.trim()
     }
     if (albumUrl === 'shush') {
         console.error('NO URL BITCH')
