@@ -5,12 +5,12 @@
     <title>Cat API</title>
 </head>
 <body>
-    <h3>For the actual API <a href="img.jpg"> click here!</a></h3>
+    <h3>For the actual API <a href="./img.jpg"> click here!</a></h3>
     <img src="" alt="" id="img">
     <script>
         // cache burst
         const cacheBuster = new Date().toLocaleString().replace(/:/g, '');
-        const url = `img.jpg?cb=${cacheBuster}`;
+        const url = `./img.jpg?cb=${cacheBuster}`;
         const img = document.getElementById('img');
         img.src = url;
         img.onload = function() {
