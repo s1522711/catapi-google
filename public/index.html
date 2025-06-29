@@ -2,11 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cat API</title>
+    <title>Germani's CatAPI</title>
 </head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+html {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: rgb(23,23,23);
+	background: linear-gradient(54deg, rgba(23,23,23,1) 0%, rgba(70,70,70,1) 100%);
+	font-family: "Inter", sans-serif;
+	color: white;
+	text-align: center;
+	height: 100vh;
+	overflow-y: hidden;
+}
+img {
+	border-radius: 20px;
+	transition: 0.3s;
+}
+img:hover {
+	transform: scale(1.07);
+}
+</style>
 <body>
-    <h3>For the actual API <a href="./img.jpg"> click here!</a></h3>
-    <img src="" alt="" id="img">
+    <h1>Die Katzenbilder</h1>
+    <p><i>A randomly selected picture of my cat (out of over 400) is served <a href="./img.jpg">here</a>.</i></p>
+    <img src="./img.png" width="500px" id="img" alt="A random cat image from My CatAPI">
+    <p>Have fun!</p>
     <script>
         // cache burst
         const cacheBuster = new Date().toLocaleString().replace(/:/g, '');
